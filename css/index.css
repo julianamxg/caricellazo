@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(63, 232, 97);
+   display: flex;
+   flex-direction: column;
+}
+
+h1,p{
+    text-align:center ;
+    color: #FFFFFF;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+}
+
+input.form-control{
+    width: 34rem;
+    margin: 1rem;
+}
+
+.btn{
+    color: #FFFFFF;
+    margin: 1rem;
+}
+
+.boton2{
+    display: none;
+}
+
+.gif{
+    margin: 0 auto;
+    width: 53%;
+    display: none;
+}
+
+
+.modalSeguir{
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    padding-top: 200px;
+    display: none;
+}
+
+.modalMoneda{
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    padding-top: 200px;
+    display: none;
+}
+
+.contenidoModal{
+    background-color: #FFFFFF;
+    width: 60%;
+    margin: auto;
+    position: relative;
+    padding: 1rem;
+    animation-name: animarmodal;
+    animation-duration: 0.5s;
+}
+
+.contenidoModal .form-group {
+    width: 100%;
+}
+
+.cerrarModal{
+    font-size: 2rem;
+    float: right;  
+}
+
+.cerrarModal:hover{
+    cursor: pointer;
+}
