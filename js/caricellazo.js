@@ -1,7 +1,10 @@
 
     let boton = document.getElementById("boton");
     let boton2 = document.getElementById("boton2");
+    let boton3 = document.getElementById("boton3");
+    let boton4 = document.getElementById("boton4");
     let gif = document.querySelector(".gif");
+
     
 
     boton.addEventListener("click", () => {
@@ -16,6 +19,7 @@
         let opcionUs = document.getElementById('opcionUs').value;
         let nombre = document.getElementById('nombre').value;
         let apuesta = document.getElementById('apuesta').value;
+        let gif = document.querySelector(".gif");
 
         let suma = 0,contador = 0, opcionCompu;
         opcionCompu = Math.floor(Math.random() * 2) + 1;
@@ -50,6 +54,11 @@
         }
 
         gif.style.display = "none";
+        boton.style.display = "none";
+        boton2.style.display = "none";
+        boton3.style.display = "block";
+        boton4.style.display = "block";
+       
        
     })/*
 
