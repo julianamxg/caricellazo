@@ -3,6 +3,7 @@
     let boton2 = document.getElementById("boton2");
     let boton3 = document.getElementById("boton3");
     let boton4 = document.getElementById("boton4");
+    let boton5 = document.getElementById("boton5");
     let gif = document.querySelector(".gif");
 
     
@@ -23,6 +24,7 @@
         let nombreC = document.querySelector('.nombre');
         let apuestaC = document.querySelector('.apuesta');
         let opcionUsu = document.querySelector(".opcionUs");
+        let boton4 = document.getElementById("boton4");
       
 
         let suma = 0,contador = 0, opcionCompu;
@@ -31,31 +33,33 @@
         opcionUs = parseInt(opcionUs);
        
         if (opcionUs==1 && opcionUs == opcionCompu) {
-            swal(nombre+", la moneda cayo en cara ¡Muy bien, has ganado! ");
+            swal(`${nombre}, la moneda cayo en cara ¡Muy bien, has ganado! `);
             contador = contador + 1;
             suma = suma + apuesta + apuesta;
         }
 
         else if (opcionUs==2 && opcionUs == opcionCompu) {
-            swal( nombre+ ", la moneda cayo en sello ¡Muy bien, has ganado! ");
+            swal( `${nombre}, la moneda cayo en sello ¡Muy bien, has ganado`);
             contador = contador + 1;
             suma = suma - apuesta;
 
         }
 
         else if (opcionUs==1 && opcionCompu == 2) {
-            swal(nombre+", la moneda cayo en sello ¡Que mal, has perdido! ");
+            swal(`${nombre}, la moneda cayo en sello ¡Que mal, has perdido!`);
             contador = contador + 1;
             suma = suma - apuesta;
 
         }
 
         else if (opcionUs==2 && opcionCompu== 1) {
-            swal(nombre+", la moneda cayo en cara ¡Que mal, has perdido! ");
+            swal(`${nombre}, la moneda cayo en cara ¡Que mal, has perdido! `);
             contador = contador + 1;
             suma = suma - apuesta;
 
         }
+
+       
 
         gif.style.display = "none";
         boton.style.display = "none";
@@ -64,7 +68,22 @@
         boton4.style.display = "block";
         nombreC.disabled = true;
 
-       
+
+        boton4.addEventListener("click", () => {
+
+            let suma = 0,contador = 0;
+            swal(nombre+", el dinero acumulado es "+suma+" y jugaste"+contador);
+            opcionUs.value = "";
+            gif.style.display = "none";
+            boton.style.display = "none";
+            boton2.style.display = "none";
+            boton3.style.display = "none";
+            boton4.style.display = "none";
+            boton5.style.display = "block";
+           
+        })
+
+       // swal(`${nombre}, el dinero acumulado es ${suma} y jugaste ${contador}`);
        
     })
     
@@ -77,6 +96,8 @@
         boton4.style.display = "none";
        
     })
+
+    
     /*
 
         let modalSeguir = document.getElementById("modalSeguir");
