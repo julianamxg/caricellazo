@@ -22,29 +22,25 @@
         <div class="form-group">
             <input id="nombre" type="text" class="form-control" placeholder="Ingresa tu nombre o apodo">
             <input id="apuesta" type="number" class="form-control" placeholder="Ingresa el dinero que deseas apostar">
-        <img class="gif" id="gif" src="./img/Logo-audaz-verde-bendito-unscreen.gif" />
-        <a id="boton" href="#" class="btn btn-warning form-control boton">Jugar</a>
-        <a id="boton2" href="#" class="btn btn-warning form-control boton2">Descubrir</a>
-    </div>
+            <select name="opcionUsu" id="opcionUs" class="form-control">
+                <option id="opcionUs" value="1">Cara</option>
+                <option id="opcionUs" value="2">Sello</option>
+            </select>
+            <img class="gif" id="gif" src="./img/Logo-audaz-verde-bendito-unscreen.gif" />
+            
+            <a id="boton" href="#" class="btn btn-warning form-control boton">Lanzar moneda</a>
+            <a id="boton2" href="#" class="btn btn-warning form-control boton2">Descubrir</a>
+            <a id="boton3" href="#" class="btn btn-warning form-control boton2">Seguir jugando</a>
+        
+
+        </div>
     </form>
 
+
+
+
+
   
-   
-
-
-    <div id="modalMoneda" class="modalMoneda">
-        <div class="contenidoModal">
-            <span class="cerrarModal"><i class="fa-solid fa-xmark"></i></span>
-            <h2>Selecciona</h2>
-            <div class="form-group">
-                <select name="opcionUsu" id="opcionUs" class="form-control">
-                    <option value="1">Cara</option>
-                    <option value="2">Sello</option>
-                </select>
-                <button id="lanzamiento" type="button" class="btn btn-secondary">Lanzar moneda</button>
-            </div>
-        </div>
-    </div>
 
     <div id="modalSeguir" class="modalSeguir">
         <div class="contenidoModal">

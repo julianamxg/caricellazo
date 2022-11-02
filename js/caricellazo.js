@@ -1,61 +1,57 @@
 
-let boton = document.getElementById("boton");
-let boton2 = document.getElementById("boton2");
-let modalMoneda = document.getElementById("modalMoneda");
-let cerrarModal = document.querySelector(".cerrarModal");
-
-boton.addEventListener("click", () => {
-    modalMoneda.style.display = "block";
-})
-
-cerrarModal.addEventListener("click", () => {
-    modalMoneda.style.display = "none";
-})
-
-window.addEventListener("click", (e) => {
-    if (e.target == perimetroC) {
-        boton.style.display = "flex";
-    }
-})
-
-    let lanzamiento = document.getElementById("lanzamiento");
+    let boton = document.getElementById("boton");
+    let boton2 = document.getElementById("boton2");
     let gif = document.querySelector(".gif");
+    
 
-
-    lanzamiento.addEventListener("click", () => {
+    boton.addEventListener("click", () => {
 
         gif.style.display = "block";
-        boton2.style.display = "block";
-        modalMoneda.style.display = "none";
         boton.style.display = "none";
+        boton2.style.display = "block";
 
     })
 
     boton2.addEventListener("click", () => {
-        let suma = 0,contador = 0;
-        let opcionCompu = Math.floor(Math.random() * 2) + 1;
+        let opcionUs = document.getElementById('opcionUs').value;
+        let nombre = document.getElementById('nombre').value;
+        let apuesta = document.getElementById('apuesta').value;
+
+        let suma = 0,contador = 0, opcionCompu;
+        opcionCompu = Math.floor(Math.random() * 2) + 1;
         opcionCompu = parseInt(opcionCompu);
+        opcionUs = parseInt(opcionUs);
        
-        let opcionUs = document.getElementById('opcionUs');
-        opcionUs = parseInt(opcionUs)
-        let nombre = document.getElementById('nombre');
-        let apuesta = document.getElementById('apuesta');
-        if (opcionUs == opcionCompu) {
-            swal("La moneda cayo en: " + opcionCompu + " ¡Muy bien, has ganado! " +nombre);
+        if (opcionUs==1 && opcionUs == opcionCompu) {
+            swal(nombre+", la moneda cayo en cara ¡Muy bien, has ganado! ");
             contador = contador + 1;
             suma = suma + apuesta + apuesta;
         }
 
-        else {
-            swal("La moneda cayo en: " + opcionCompu + "¡Que mal, has perdido!");
+        else if (opcionUs==2 && opcionUs == opcionCompu) {
+            swal( nombre+ ", la moneda cayo en sello ¡Muy bien, has ganado! ");
+            contador = contador + 1;
+            suma = suma - apuesta;
+
+        }
+
+        else if (opcionUs==1 && opcionCompu == 2) {
+            swal(nombre+", la moneda cayo en sello ¡Que mal, has perdido! ");
+            contador = contador + 1;
+            suma = suma - apuesta;
+
+        }
+
+        else if (opcionUs==2 && opcionCompu== 1) {
+            swal(nombre+", la moneda cayo en cara ¡Que mal, has perdido! ");
             contador = contador + 1;
             suma = suma - apuesta;
 
         }
 
         gif.style.display = "none";
-        
-        
+       
+    })/*
 
         let modalSeguir = document.getElementById("modalSeguir");
         let cerrarModal = document.querySelector(".cerrarModal");
@@ -92,7 +88,6 @@ window.addEventListener("click", (e) => {
             alert("Achh, ya no tienes dinero, empieza otra vez ):");
         }
 
-    })
-
-
+    
+*/
 
