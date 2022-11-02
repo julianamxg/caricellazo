@@ -1,29 +1,28 @@
 body{
     background-color: rgb(63, 232, 97);
-   display: flex;
-   flex-direction: column;
 }
 
 h1,p{
     text-align:center ;
     color: #FFFFFF;
 }
-
+.contenedor{
+    margin-top: 7%;
+}
 form{
     display: flex;
     justify-content: center;
 }
 
 .form-control{
-    margin-bottom: 1rem;
+    margin-bottom: 3%;
 }
 
 .form-group{
-    width: 35rem;
+    width: 40%;
 }
 
 .botones{
-    width: 35rem;
     display: flex;
     justify-content: space-around;
 }
@@ -38,3 +37,25 @@ form{
     display: none;
 }
 
+@media screen and (min-width: 200px) and (max-width: 768px) {
+    .botones{
+        display: block;
+    }
+
+    .form-group {
+        width: 92%;
+    }
+
+    .btn {
+        margin: auto;
+    }
+    .contenedor {
+        margin-top: 16%;
+    }
+
+    .form-control.btn{
+        margin-bottom: 3%;
+    }
+
+
+}
