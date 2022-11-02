@@ -1,140 +1,115 @@
 
-    let boton = document.getElementById("boton");
-    let boton2 = document.getElementById("boton2");
-    let boton3 = document.getElementById("boton3");
-    let boton4 = document.getElementById("boton4");
-    let boton5 = document.getElementById("boton5");
-    let gif = document.querySelector(".gif");
+let botonLanzar = document.getElementById("botonLanzar");
+let botonTerminar = document.getElementById("botonTerminar");
+let gif = document.querySelector(".gif");
+let inputApuesta = document.querySelector(".apuesta");
+let inputOpcionUs = document.querySelector(".opcionUs");
+let nombreC = document.querySelector('.nombre');
 
-    
+let suma = 0, contador = 0, total = 0;
 
-    boton.addEventListener("click", () => {
+
+botonLanzar.addEventListener("click", () => {
+
+    let opcionUs = document.getElementById('opcionUs').value;
+    let nombre = document.getElementById('nombre').value;
+    let apuesta = document.getElementById('apuesta').value;
+
+
+
+    if (inputApuesta.value != '' && inputOpcionUs.value != '' && nombreC.value !='') {
+        let opcionCompu = Math.floor(Math.random() * 2) + 1;
+        contador++;
+        let opcion = parseInt(inputOpcionUs.value)
+        let apuestaUsu = parseInt(inputApuesta.value)
+
+        total += apuestaUsu;
+
+        if (opcion == 1 && opcion == opcionCompu) {
+            suma += parseInt(apuestaUsu) * 2;
+            swal(`${nombre}, la moneda cayo en cara ¡Muy bien, has ganado ${apuestaUsu * 2}! y llevas ${suma}`);
+
+        }
+
+        else if (opcion == 2 && opcion == opcionCompu) {
+            suma += parseInt(apuestaUsu) * 2;
+            swal(`${nombre}, la moneda cayo en sello ¡Muy bien, has ganado ${apuestaUsu * 2} y llevas ${suma}`);
+
+
+        }
+
+        else {
+            suma -= parseInt(apuestaUsu);
+            swal(`${nombre}, ¡Que mal, has perdido ${apuestaUsu}! y llevas ${suma}`);
+
+
+
+        }
 
         gif.style.display = "block";
-        boton.style.display = "none";
-        boton2.style.display = "block";
-
-    })
-
-    boton2.addEventListener("click", () => {
-        let opcionUs = document.getElementById('opcionUs').value;
-        let nombre = document.getElementById('nombre').value;
-        let apuesta = document.getElementById('apuesta').value;
-        let gif = document.querySelector(".gif");
-        let nombreC = document.querySelector('.nombre');
-        let apuestaC = document.querySelector('.apuesta');
-        let opcionUsu = document.querySelector(".opcionUs");
-        let boton4 = document.getElementById("boton4");
-      
-
-        let suma = 0,contador = 0, opcionCompu;
-        opcionCompu = Math.floor(Math.random() * 2) + 1;
-        opcionCompu = parseInt(opcionCompu);
-        opcionUs = parseInt(opcionUs);
-       
-        if (opcionUs==1 && opcionUs == opcionCompu) {
-            swal(`${nombre}, la moneda cayo en cara ¡Muy bien, has ganado! `);
-            contador = contador + 1;
-            suma = suma + apuesta + apuesta;
-        }
-
-        else if (opcionUs==2 && opcionUs == opcionCompu) {
-            swal( `${nombre}, la moneda cayo en sello ¡Muy bien, has ganado`);
-            contador = contador + 1;
-            suma = suma - apuesta;
-
-        }
-
-        else if (opcionUs==1 && opcionCompu == 2) {
-            swal(`${nombre}, la moneda cayo en sello ¡Que mal, has perdido!`);
-            contador = contador + 1;
-            suma = suma - apuesta;
-
-        }
-
-        else if (opcionUs==2 && opcionCompu== 1) {
-            swal(`${nombre}, la moneda cayo en cara ¡Que mal, has perdido! `);
-            contador = contador + 1;
-            suma = suma - apuesta;
-
-        }
-
-       
-
-        gif.style.display = "none";
-        boton.style.display = "none";
-        boton2.style.display = "none";
-        boton3.style.display = "block";
-        boton4.style.display = "block";
         nombreC.disabled = true;
+    }
+    else {
+        swal('Llena todos los campos')
+    }
+})
 
 
-        boton4.addEventListener("click", () => {
+botonTerminar.addEventListener("click", () => {
+    let nombre = document.getElementById('nombre').value;
 
-            let suma = 0,contador = 0;
-            swal(nombre+", el dinero acumulado es "+suma+" y jugaste"+contador);
-            opcionUs.value = "";
-            gif.style.display = "none";
-            boton.style.display = "none";
-            boton2.style.display = "none";
-            boton3.style.display = "none";
-            boton4.style.display = "none";
-            boton5.style.display = "block";
-           
-        })
+    swal(`${nombre} , el dinero acumulado es  ${suma}  y jugaste  ${contador}  veces`);
+    opcionUs.value = "";
+    gif.style.display = "none";
+    boton.style.display = "none";
+    boton2.style.display = "none";
+    boton3.style.display = "none";
+    boton4.style.display = "none";
+    boton5.style.display = "block";
 
-       // swal(`${nombre}, el dinero acumulado es ${suma} y jugaste ${contador}`);
-       
+})
+
+// swal(`${nombre}, el dinero acumulado es ${suma} y jugaste ${contador}`);
+
+
+
+/*
+
+    let modalSeguir = document.getElementById("modalSeguir");
+    let cerrarModal = document.querySelector(".cerrarModal");
+    let Aceptar = document.getElementById("Aceptar");
+
+   
+        modalSeguir.style.display = "block";
+  
+
+    cerrarModal.addEventListener("click", () => {
+        modalSeguir.style.display = "none";
+    })
+
+    Aceptar.addEventListener("click", () => {
+        modalSeguir.style.display = "none";
     })
     
-    boton3.addEventListener("click", () => {
-        opcionUs.value = "";
+    let seguir = document.getElementById('seguir');
+    seguir = parseInt(seguir);
+
+    if (seguir!=2) {
+        modalMoneda.style.display = "block";
+    } 
+    
+    else{
         gif.style.display = "none";
-        boton.style.display = "block";
         boton2.style.display = "none";
-        boton3.style.display = "none";
-        boton4.style.display = "none";
-       
-    })
-
-    
-    /*
-
-        let modalSeguir = document.getElementById("modalSeguir");
-        let cerrarModal = document.querySelector(".cerrarModal");
-        let Aceptar = document.getElementById("Aceptar");
-
-       
-            modalSeguir.style.display = "block";
-      
-
-        cerrarModal.addEventListener("click", () => {
-            modalSeguir.style.display = "none";
-        })
-
-        Aceptar.addEventListener("click", () => {
-            modalSeguir.style.display = "none";
-        })
+        boton.style.display = "block";
         
-        let seguir = document.getElementById('seguir');
-        seguir = parseInt(seguir);
+    swal("El dinero acumulado es: " + suma);
+    swal("La cantidad de veces que jugaste fue: " + contador);
+    }
+    if (suma == 0) {
+        alert("Achh, ya no tienes dinero, empieza otra vez ):");
+    }
 
-        if (seguir!=2) {
-            modalMoneda.style.display = "block";
-        } 
-        
-        else{
-            gif.style.display = "none";
-            boton2.style.display = "none";
-            boton.style.display = "block";
-            
-        swal("El dinero acumulado es: " + suma);
-        swal("La cantidad de veces que jugaste fue: " + contador);
-        }
-        if (suma == 0) {
-            alert("Achh, ya no tienes dinero, empieza otra vez ):");
-        }
-
-    
+ 
 */
 
