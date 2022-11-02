@@ -20,6 +20,10 @@
         let nombre = document.getElementById('nombre').value;
         let apuesta = document.getElementById('apuesta').value;
         let gif = document.querySelector(".gif");
+        let nombreC = document.querySelector('.nombre');
+        let apuestaC = document.querySelector('.apuesta');
+        let opcionUsu = document.querySelector(".opcionUs");
+      
 
         let suma = 0,contador = 0, opcionCompu;
         opcionCompu = Math.floor(Math.random() * 2) + 1;
@@ -58,9 +62,22 @@
         boton2.style.display = "none";
         boton3.style.display = "block";
         boton4.style.display = "block";
+        nombreC.disabled = true;
+
        
        
-    })/*
+    })
+    
+    boton3.addEventListener("click", () => {
+        opcionUs.value = "";
+        gif.style.display = "none";
+        boton.style.display = "block";
+        boton2.style.display = "none";
+        boton3.style.display = "none";
+        boton4.style.display = "none";
+       
+    })
+    /*
 
         let modalSeguir = document.getElementById("modalSeguir");
         let cerrarModal = document.querySelector(".cerrarModal");
